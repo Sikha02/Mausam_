@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <style>
+     .navbar{
+        width:100%; 
+        border:1px solid black; 
+        position:sticky;
+        padding: 2px;
+        padding-left: 45%;
+        font-size: 20px;
+        text-decoration:none;  
+        background-color: rgb(158, 203, 254); 
+        display:block;
+        color: black;  
+        margin-top: 0;
+        z-index: 1;
+
+     }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script> 
+</head>
+<body>
+    <a href="/" class="navbar">Home</a>
+    <div id="map" style="width: 100%; height: 100vh; margin-top:10px"></div>
+</body>
+<script src="worldcountries.js"></script>
+{{!-- <script src="src.js"></script> --}}
+<script>
+    
+     var map = L.map('map').setView([60.505, 1.09], 3);
+      
+    function mymap(){
+       
+        
+
+    L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+    var myLayer = L.geoJSON(worldcountries,{
+        onEachFeature:function(feature,layer){
+            layer.bindPopup(feature.properties.ADMIN)
+            layer.on('click',function(e){
+                fetch("http://api.weatherapi.com/v1/current.json?key=532e998330b74a29ba0172052232002&q="+feature.properties.ADMIN +"&aqi=no").then(res=>res.json()).then(data=>{
+                    var weather = "<div><p>Weather: <b>"+data.current.condition.text+ "</b><br>Temp:<b>"+data.current.temp_c+" </b> </p></div>";
+                    layer.bindPopup('<img src="https://flagcdn.com/80x60/'+feature.properties.ISO_A3+'.png" crossorigin="anonymous" width="35px" height="27px"/><h2 style="margin-top: 0.40em; margin-bottom: 0.4em;">'+feature.properties.ADMIN+'</h2>'+weather)
+                }).catch(err=>console.log(err));
+                
+            })
+        },style:{
+        fillColor:'yellow',
+        fillOpacity:0.2,
+        color: 'orange'
+    }}).addTo(map);
+
+    console.log(setView);
+}
+ mymap();
+
+</script>
+</html>

@@ -1,0 +1,115 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather App</title>
+    <link
+      rel="icon"
+      href="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png"
+      type="image/icon type"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bgcolor">
+      <div class="container-fluid">
+        <img
+          src="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png"
+          alt=""
+          height="35px"
+          width="35px"
+        />
+        <a class="navbar-brand" href="/">Weather app</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/map">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search" action="">
+            <input
+              id="city"
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="city"
+              value=""
+            />
+            <button class="btn btn-outline-success">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="about">
+        <h6>A weather monitoring system senses the state of the atmosphere, such
+          as its conditions (clear, stormy, rainy and so on). To get the state of the
+          atmosphere, we need temperature, humidity, and weather sensors. It
+          provides information on the variations in humidity, temperature, and
+          CO levels in the exact region where the embedded monitoring device is
+          installed. The data collected will be saved on the cloud. The cloud
+          data can be used for parameter analysis and continuous monitoring.
+        </h6>
+        <h6>
+          Weather forecast project application is a web based application
+          through which you will be able to get all reports related to weather
+          forecasting of any locations. Its geographical locator which received
+          through your browser setting and server configuration will
+          automatically identify the location and able to present its whether
+          details such as temperature , direction of wind , rains , humidity
+          etc. To change the location you will just have to select the options
+          provided below to get details. Its new avatars and feed burner will
+          also allow its user weather reports directly to their mail, when they
+          were not able to access this particular domain or even when the server
+          is down.
+        </h6>
+      </div>
+    </main>
+  </body>
+</html>

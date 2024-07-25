@@ -1,0 +1,333 @@
+*{
+    padding: 0;
+    margin: 0;
+    --primarycolor: #acc9f0;
+    --secondarycolor: #ffa36e;
+}
+body{
+    /* display: flex; */
+    /* justify-content: center;*/
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Roboto Slab', serif;
+    background-image: url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/industry/weather-forecast-background.jpg);
+    background-repeat: round;
+    
+}
+
+.navbar.bgcolor{
+    background-color: rgb(158, 203, 254);
+}
+.containerbox{
+    display:flex;
+    top: 0;
+    height: 500px;
+    width: 100%;
+    /* border: 2px solid red; */
+    align-items:center;
+    position:relative;
+    justify-content: center;
+
+}
+
+.containerbox .box1 {
+    height: 480px;
+    width: 750px;
+    transform: translate3d(0,0,0);
+    border-radius: 0.5rem;
+    position: relative;
+    background-color: var(--primarycolor);
+    box-shadow: 0 0.2rem 3rem rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    align-items: center;
+    align-content: center;
+    
+
+}
+
+.wave {
+    opacity: 0.3;
+    top: 182%;
+    left: 20%;
+    background: white;
+    width: 86rem;
+    height: 74rem;
+    margin-left: -31rem;
+    margin-top: -25rem;
+    transform-origin: 50% 45%;
+    border-radius: 43%;
+    color: rgb(52, 113, 113);
+    position: absolute;
+    z-index: 1;
+    animation: drift 4500ms infinite linear;
+    overflow: hidden;
+}
+.wvthree{
+    animation: drift 5000ms infinite linear ;
+    opacity: 0.3;
+    z-index: 3 !important;
+    overflow: hidden;
+}
+.wvtwo{
+    animation: drift 7000ms infinite linear ;
+    opacity: 0.1;
+    z-index: 3 !important;
+    overflow: hidden;
+}
+.box3 .wvthree{
+    animation: drift 4000ms infinite linear ;
+    opacity: 0.3;
+    z-index: 3 !important;
+    overflow: hidden;
+}
+.box1 .wvthree{
+    animation: drift 5000ms infinite linear ;
+    opacity: 0.3;
+    z-index: 3 !important;
+    overflow: hidden;
+}
+@keyframes drift{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.cityname{
+    display: flex;
+    justify-content: center;
+}
+
+.containerbox h2{
+    color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    top: 2%;
+    z-index: 4;
+    align-self: center;
+    align-items: center;
+}
+.containerbox .box1 h2{
+    left: 40%;
+} 
+.imagediv{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+.imagediv img{
+    /* position: absolute; 
+    padding-left: 322px; */
+    padding-top: 77px;
+}
+.temp{
+    /* left: 44%; */
+    top: 12rem;
+    position: relative;
+    font-size: 35px;
+    z-index: 4;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.min_today{
+    left: 2%;
+    top: 12rem;
+    position: relative;
+    font-size: 25px;
+    z-index: 4;
+}
+.max_today{
+    top: 155px;
+    position: relative;
+    font-size: 25px;
+    z-index: 4;
+    justify-content: right;
+    width: 100%;
+    padding-right: 15px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.containerbox .minmax_today h5{
+    position: fixed;
+    font-size: larger;
+    top: 22rem;
+    z-index: 4;
+    color: black;
+    left: 13%;
+
+}
+
+.sunrise{
+    left: 2%;
+    top: 15rem;
+    position: relative;
+    font-size: 25px;
+    z-index: 4;
+    display: inline-flex;
+}
+.sunset{
+    top: 202px;
+    position: relative;
+    font-size: 25px;
+    z-index: 4;
+    justify-content: right;
+    width: 100%;
+    padding-right: 1px;
+    display: inline-flex;
+    align-items: center;
+}
+.humidity{
+    left: 41%;
+    top: 12rem;
+    position: relative;
+    font-size: 25px;
+    z-index: 4;
+    display: inline-flex;
+}
+span h5{
+    padding-right: 10px;
+    margin-top: 5px;
+    font-family: sans-serif;
+    font-weight: 400;
+
+}
+.date{
+    margin: auto;
+    width: 100%;
+    align-items: center;
+    display: inherit;
+    position: absolute;
+    width: 98%;
+    top: 4rem;
+    z-index: 4;
+    font-size: 27px;
+    text-align: center;
+    color: black;
+}
+.description{
+    margin: auto;
+    width: 100%;
+    display: inherit;
+    position: absolute;
+    width: 100%;
+    font-size: 21px;
+    text-align: center;
+    z-index: 4;
+    font-weight: 500;
+    top: 12rem;
+    margin-top: 6px;
+}
+.mainbox{
+    border: 2px solid black;
+    height: 200px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    overflow: auto;
+
+}
+.smallbox{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    background-color: var(--primarycolor);
+    min-height: 150px;
+    width: 100px;
+    display: block;
+    align-items: center;
+}
+.smallbox:hover{
+    transition: all 0.4s;
+    transform:scale(1.05,1.05);   
+    cursor: pointer;
+}
+.smallbox p{
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.smallbox h3{
+    font-size: 20px;
+    /* transform: translate(0px, -10px); */
+}
+/* .smallbox img{
+    transform: translate(0px, -4px);
+} */
+.forecast_description{
+    font-size: 12px;
+}
+.footer{
+    background-color: var(--primarycolor);
+    width: 100%;
+    bottom: 0;
+    color: black;
+    font: sans-serif;
+    margin-bottom: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.footer p{
+   margin-bottom: 0;
+}
+.creatorname{
+    position: relative;
+    padding-left: 100px;
+}
+
+.about h6{
+    font-size: 28px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.6);
+}
+@media screen and (max-width:430px) { 
+    span .first-h5{
+        
+        display: none;
+    }
+    .creatorname {
+        position: relative;
+        padding-left: 0;
+    }
+    .mainbox{
+        display: grid;
+        grid-auto-flow: column;
+        scroll-behavior: auto;
+        gap: 7px;
+        overflow-y: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    .mainbox::-webkit-scrollbar{
+        display: none;
+    }
+    .smallbox{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        background-color: var(--primarycolor);
+        min-height: 150px;
+        width: 100px;
+        display: block;
+        align-items: center;
+    }
+    .smallbox:hover{
+        transition: all 0.4s;
+        transform:scale(1.05,1.05);   
+        cursor: pointer;
+    }
+    .smallbox p{
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    .smallbox h3{
+        font-size: 20px;
+        /* transform: translate(0px, -10px); */
+    }
+}
