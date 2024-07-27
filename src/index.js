@@ -1,42 +1,47 @@
-const express= require('express');
-const app=express();
-const path = require("path");
-const port =  8000;
+const express = require('express');
+const app = express();
+const path = require('path');
+const port = 8000;
 const hbs = require('hbs');
-const weatherService = require("../public/weatherService");
-const getFormattedWeatherData = weatherService.getFormattedWeatherData;  
-const homeRouter = require("../routes/home")
-const bodyParser = require('body-parser')
+const weatherService = require('../public/weatherService');
+const getFormattedWeatherData = weatherService.getFormattedWeatherData;
+const homeRouter = require('../routes/home');
+const bodyParser = require('body-parser');
 
-const publicpath = path.join(__dirname,'../public')
-const templatespath = path.join(__dirname,'../templates/views')
-const partialspath = path.join(__dirname,'../templates/partials')
-app.use(bodyParser.urlencoded({extended: true}));
+// Define paths for Express
+const publicPath = path.join(__dirname, '../public');
+const viewsPath = path.join(__dirname, '../templates/views');
+const partialsPath = path.join(__dirname, '../templates/partials');
 
-app.set('view engine','hbs');
-app.set('views',templatespath);
-app.use(express.static(publicpath));
-hbs.registerPartials(partialspath)
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(publicPath));  // Serving static files from public directory
 
-// app.get("/",(req,res)=>{
-//     res.render('index'); 
-// });
+// View Engine Setup
+app.set('view engine', 'hbs');
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath);
 
+// Routes
 app.use('/', homeRouter);
 
-app.get("/map",(req,res)=>{
+app.get('/map', (req, res) => {
     res.render('map');
 });
-app.get('/about' , (req , res)=>{
 
-   res.render('about');
+app.get('/about', (req, res) => {
+    res.render('about');
+});
 
-})
+app.get('/login', (req, res) => {
+    res.render('login');
+});
 
-// const fetchweather = async () =>{
-//     const data = await getFormattedWeatherData({q:'pune'});
-//     console.log(data);
-// }
-// fetchweather();
+app.get('/registration', (req, res) => { // Ensure this route exists
+    console.log('Registration route hit'); 
+    res.render('registration');
+});
 
-app.listen(port,console.log("server run at ",port))
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});

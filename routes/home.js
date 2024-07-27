@@ -25,7 +25,7 @@ router.get("/", (req, res) => {
     var cityname = req.query.city;
     console.log(cityname);
     if(cityname === undefined){
-     cityname = "khordha"
+     cityname = "Bhubaneswar";
     }
     var e = cityname.toString();
     const wetherdata = await getFormattedWeatherData({q:e});
