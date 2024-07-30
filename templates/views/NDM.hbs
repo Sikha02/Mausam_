@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NDM</title>
+  <link rel="icon" href="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" type="image/icon type">
+  <link rel="stylesheet" href="/style/ndm.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,200">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Include any other necessary CSS or JS libraries -->
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bgcolor">
+      <div class="container-fluid">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" alt="" height="35px" width="35px"> 
+        <a class="navbar-brand" href="/">MAUSAM</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/map">Map</a>
+            </li>
+           <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/about">About</a>
+              </li> 
+          </ul>
+          <form class="d-flex" role="search" action="" >
+            <input
+              id="city"
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="city"
+              value=""
+            />
+            <button class="btn btn-outline-success" >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+      <div class="marquee">
+      <div>
+        <span>National Disaster Management.</span>
+        <span>National Disaster Management.</span>
+      </div>
+    </div>
+
+    <div>
+          {{>forecasthourly}}
+        </div>
+         
+         <hr>
+         <div>
+           {{>forecastdaily}}
+         </div>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>Troops</th>
+      <th>Total Troops</th>
+      <th>Deploy</th>
+      <th>Available</th>
+    </tr>
+    <tr>
+      <td><b>Resource</b></td>
+      <td>Tobias</td>
+      <td>Linus</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Medical</b></td>
+      <td>14</td>
+      <td>10</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Fire</b></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Flood</b></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  
+
+
+
+   <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

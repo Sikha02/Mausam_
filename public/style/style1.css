@@ -7,18 +7,26 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Roboto", sans-serif;
-  background-color: #5356ad;
+  background-image: url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/industry/weather-forecast-background.jpg);
+  background-size: cover;
   overflow: hidden;
 }
 
 .table {
-  display: table;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+  width: 100%;
 }
+  
+ 
 
 .table-cell {
-  display: table-cell;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   vertical-align: middle;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -75,7 +83,7 @@ body {
   cursor: pointer;
   text-align: center;
   margin: 0 auto;
-  width: 60px;
+  width: 80px;
   color: #fff;
   background-color: #ff73b3;
   opacity: 1;
@@ -90,6 +98,27 @@ body {
 .container .btn, .container input {
   padding: 10px 15px;
 }
+
+
+.container.forgot-password {
+  background-color: #f44336; /* Example color */
+  color: white;
+  min-width: 150px;
+  flex: 2;
+ 
+  cursor: pointer;
+}
+.container.button-container {
+  display: flex;
+  gap: 30px; /* Adjust space between buttons */
+}
+.container.forgot-password:hover {
+  background-color: #d32f2f; /* Darker color on hover */
+  color: white;
+  
+}
+
+
 .container input {
   margin: 0 auto 15px;
   display: block;

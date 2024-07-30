@@ -39,7 +39,8 @@ router.get("/", (req, res) => {
   const alldata = mypromise.then((value) => getvalue(value));
 
    
-  
+    
+
   
   function getvalue(z) {
     console.log("data has fetched");

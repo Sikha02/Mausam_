@@ -6,13 +6,25 @@
     <title>Login</title>
     <link rel="stylesheet" href="/style/style1.css">
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-    const signupBtn = document.getElementById('signupBtn');
+        document.addEventListener('DOMContentLoaded', () => {
+      const signupBtn = document.getElementById('signupBtn');
+      const loginForm = document.getElementById('loginForm');
 
-    signupBtn.addEventListener('click', () => {
+      signupBtn.addEventListener('click', () => {
         window.location.href = '/registration'; // Change this path if registration.html is in a different directory
+      });
+
+      loginForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission if you need custom handling
+        const userType = document.getElementById('branch').value;
+        if (userType === 'NDM') {
+          window.location.href = '/ndm';
+        } else if (userType === 'SDM') {
+          window.location.href = '/sdm';
+        }
+      });
     });
-});
+
     </script>
 
 
@@ -28,9 +40,10 @@
                   <p>
                     Have an account?
                   </p>
-                  <div class="btn" id="loginBtn">
+                  <button type="submit" class="btn">
                     Log in
-                  </div>
+                  </button>
+
                 </div>
               </div>
             </div>
@@ -48,17 +61,30 @@
             </div>
           </div>
           <div class="container-form">
+            <form id="loginForm" action="/login" method="post">
             <div class="form-item log-in">
               <div class="table">
                 <div class="table-cell">
-                  <input name="Username" placeholder="Username" type="text" />
-                  <input name="Password" placeholder="Password" type="Password" />
-                  <div class="btn">
+                  <input name="username" placeholder="Username" type="text" required />
+                  <input name="password" placeholder="Password" type="password" required />
+                  <select name="branch" id="branch" required>
+                    <option value="" disabled selected>Select your branch</option>
+                    <option value="NDM">NDM</option>
+                    <option value="SDM">SDM</option>
+                  </select>
+                  <div class="button-container">
+                  <button type="submit" class="btn">
                     Log in
-                  </div>
+                  </button>
+                   <button type="button" id="forgotPasswordBtn" class="btn forgot-password">
+                    Forgot Password
+                    </button>
+                    </div>
                 </div>
               </div>
             </div>
+          </form>
+
             <div class="form-item sign-up">
               <div class="table">
                 <div class="table-cell">

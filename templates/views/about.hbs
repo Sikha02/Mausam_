@@ -1,20 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MAUSAM</title>
-    <link
-      rel="icon"
-      href="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png"
-      type="image/icon type"
-    />
+    <link rel="icon" href="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" type="image/icon type"/>
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -27,20 +21,141 @@
       integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bgcolor">
+    <style>
+      .navbar{
+        background-color: rgb(158, 203, 254);
+      }
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      .navbar-nav .nav-link {
+        color: #ffffff;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #ddd;
+      }
+
+      .about-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 2rem;
+        position: relative;
+        background: url('path/to/your/background-image.jpg') no-repeat center center/cover;
+        background-attachment: fixed;
+      }
+
+      .about-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        z-index: 1;
+      }
+
+      .us {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 2rem;
+        margin: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        max-width: 800px;
+        border-radius: 8px;
+        position: relative;
+        z-index: 2;
+        margin-top: -95px;
+      }
+
+      .us:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .us h2 {
+        margin-bottom: 1.5rem;
+        color: #6e9fd3;
+        font-family: 'Roboto Slab', serif;
+      }
+
+      .us p {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .team-section {
+        padding: 4rem 2rem;
+        background-color: #ffffff;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      .team-section h2 {
+        text-align: center;
+        color: #6e9fd3;
+        margin-bottom: 3rem;
+        font-family: 'Roboto Slab', serif;
+        font-size: 2rem;
+      }
+
+      .team-member {
+        text-align: center;
+        padding: 1rem;
+        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: #e9ecef;
+      }
+
+      .team-member img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        transition: transform 0.3s;
+      }
+
+      .team-member:hover img {
+        transform: scale(1.1);
+      }
+
+      .team-member h3 {
+        margin-bottom: 0.5rem;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .team-member p {
+        color: #777;
+        font-weight: 300;
+      }
+
+      .navbar-toggler {
+        border: none;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/%3E%3C/svg%3E');
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <img
           src="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png"
@@ -79,7 +194,7 @@
               name="city"
               value=""
             />
-            <button class="btn btn-outline-success">
+            <button class="btn btn-outline-light" type="submit">
               Search
             </button>
           </form>
@@ -87,29 +202,47 @@
       </div>
     </nav>
     <main>
-      <div class="about">
-        <h6>A weather monitoring system senses the state of the atmosphere, such
-          as its conditions (clear, stormy, rainy and so on). To get the state of the
-          atmosphere, we need temperature, humidity, and weather sensors. It
-          provides information on the variations in humidity, temperature, and
-          CO levels in the exact region where the embedded monitoring device is
-          installed. The data collected will be saved on the cloud. The cloud
-          data can be used for parameter analysis and continuous monitoring.
-        </h6>
-        <h6>
-          Weather forecast project application is a web based application
-          through which you will be able to get all reports related to weather
-          forecasting of any locations. Its geographical locator which received
-          through your browser setting and server configuration will
-          automatically identify the location and able to present its whether
-          details such as temperature , direction of wind , rains , humidity
-          etc. To change the location you will just have to select the options
-          provided below to get details. Its new avatars and feed burner will
-          also allow its user weather reports directly to their mail, when they
-          were not able to access this particular domain or even when the server
-          is down.
-        </h6>
-      </div>
+        <div class="about-container">
+            <div class="us"> 
+                <h2>About Us</h2>
+                <p>MAUSAM is a dedicated platform providing accurate and up-to-date weather information. Founded in 2024, our mission has always been to keep our users informed and prepared for any weather conditions.</p>
+                <p>Our features include real-time weather updates, detailed 7-day forecasts, and severe weather alerts to ensure your safety. Customize your experience with light/dark mode and choose between Celsius or Fahrenheit for temperature readings.</p>
+                <p>We are committed to delivering reliable weather data through advanced forecasting models and trusted sources. Your feedback is essential to us, so please feel free to share your thoughts and suggestions.</p>
+                <p>Thank you for choosing MAUSAM for your weather updates. Stay informed and stay safe!</p>
+            </div>
+        </div>
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="row">
+                <div class="col-md-3 team-member">
+                    <img src="https://img.freepik.com/premium-photo/3d-character-cartoon_113255-31677.jpg?w=740" alt="Dipasikha Sahoo">
+                    <h3>Dipasikha Sahoo</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="col-md-3 team-member">
+                    <img src="https://img.freepik.com/premium-photo/3d-character-cartoon_113255-30600.jpg?w=740" alt="Amrita Panda">
+                    <h3>Amrita Panda</h3>
+                    <p>Chief Meteorologist</p>
+                </div>
+                <div class="col-md-3 team-member">
+                    <img src="https://img.freepik.com/premium-photo/cartoon-portrait-handsome-young-man-shirt-white-isolated-background_1086710-5869.jpg?w=1060" alt="Siba Prasad Sahoo">
+                    <h3>Siba Prasad Sahoo</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="col-md-3 team-member">
+                    <img src="https://img.freepik.com/premium-photo/software-engineer-digital-avatar-generative-ai_934475-8997.jpg?w=740" alt="Saswat Kumar Sahoo">
+                    <h3>Saswat Kumar Sahoo</h3>
+                    <p>Marketing Head</p>
+                </div>
+            </div>
+        </div>
     </main>
-  </body>
+    <footer>
+        <div class="footer">
+          <p> ©Copyright 2024 Mausam .All rightes reserved<span class="creatorname"> Design by Team-15</span></p>
+        </div>
+       </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBgPzYkH+KAXqr81kzOYm5wp1pvPp9z7huM0p5jFYE9+K3h5" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93RFrGWs4GHcGQyNIYpmMRXQpH4qZkSZ2e5lHc4phjB9l+1hb8Kj8Hj6rW6Y77" crossorigin="anonymous"></script>
+</body>
 </html>

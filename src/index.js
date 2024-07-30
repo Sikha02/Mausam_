@@ -36,10 +36,28 @@ app.get('/about', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
-
+app.post('/login', (req, res) => {
+    const { username, password, branch } = req.body;
+    // Handle login logic here
+    if (branch === 'NDM') {
+        res.redirect('/ndm');
+    } else if (branch === 'SDM') {
+        res.redirect('/sdm');
+    } else {
+        res.status(400).send('Invalid branch selection');
+    }
+});
 app.get('/registration', (req, res) => { // Ensure this route exists
     console.log('Registration route hit'); 
     res.render('registration');
+});
+
+app.get('/ndm', (req, res) => {
+    res.render('NDM');
+});
+
+app.get('/sdm', (req, res) => {
+    res.render('SDM');
 });
 
 app.listen(port, () => {
