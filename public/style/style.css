@@ -95,12 +95,9 @@ body{
     }
 }
 .cityname{
-    margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
-
-
 
 .containerbox h2{
     color: black;
@@ -235,26 +232,15 @@ span h5{
     overflow: auto;
 
 }
-.card-glass {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  .card-glass img {
-    max-width: 80px;
-    height: auto;
-  }
-  .small-card {
-    width: 100px;
-    margin: 5px;
-  }
-  .large-card {
-    width: 150px;
+.smallbox{
+    border: 2px solid black;
     margin: 10px;
-  }
-  .forecast-section {
-    margin-top: 20px;
-  }
+    background-color: #acc9f0;
+    height: 180px;
+    width: 300px;
+    
+   
+}
 /* .smallbox img{
     transform: translate(0px, -4px);
 } */

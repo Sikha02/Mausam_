@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/industry/weather-forecast-background.jpg);
+    backdrop-filter: blur(2px);
     background-size: cover; /* Ensure the background image covers the entire viewport */
     background-position: center; /* Center the background image */
     height: 100vh;
@@ -31,43 +32,43 @@ body {
 }
 
 /* Marquee styles */
-.marquee {
- 
-  
+body { margin: 20px; }
 
-    height: 100px;
-    width: 100%;
-    color: #fffdfd;
-  
-    overflow: hidden;
-    position: relative;
-    font-size: 30px;
-    font-weight: bold;
-  
-  
-  }
-  
-  .marquee div {
-    display: block;
-    width: 200%;
-    height: 30px;
-  
-    position: absolute;
-    overflow: hidden;
-  
-    animation: marquee 10s linear infinite;
-  }
-  
-  .marquee span {
-    float: left;
-    width: 50%;
-  }
-  
-  @keyframes marquee {
-    10% { left: 0; }
-    100% { left: -100%; }
-  }
-  
+.marquee {
+  height: 60px;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  display: flex;
+  width: 200%;
+  height: 100%;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 10s linear infinite;
+}
+
+.marquee span {
+  font-size: 34px;
+  font-weight: bold;
+  color: rgb(13, 32, 75);
+  line-height: 60px;
+  float: left;
+  width: 100%;
+
+  padding-left: 0%;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
 
 /* Form container styles */
 .form-popup {

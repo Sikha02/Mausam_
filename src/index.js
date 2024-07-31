@@ -61,6 +61,14 @@ app.get('/sdm', (req, res) => {
     res.render('SDM');
 });
 
+app.get('/Details', (req, res) => {
+    res.render('Details');
+});
+
+app.get('/request', (req, res) => {
+    res.render('request');
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
