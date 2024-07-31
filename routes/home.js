@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+const cors = require ('cors');
 var router = express.Router();
 const React = require("react");
 const { useEffect } = React;
@@ -38,7 +39,8 @@ router.get("/", (req, res) => {
   });
   const alldata = mypromise.then((value) => getvalue(value));
 
-   
+  //  get ndm page
+  
     
 
   
@@ -103,6 +105,9 @@ router.get("/", (req, res) => {
     res.render("index",currentdata);
   }
 });
+
+// get ndm page
+
 
 // router.post('/signup', (req, res) => {
 //   var em = req.body.emailInput;

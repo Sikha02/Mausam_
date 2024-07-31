@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NDM</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MAUSAM</title>
   <link rel="icon" href="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" type="image/icon type">
-  <link rel="stylesheet" href="/style/ndm.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,200">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <!-- Include any other necessary CSS or JS libraries -->
+  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .card{
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .card img {
+      max-width: 80px;
+      height: auto;
+    }
+    .small-card {
+      width: 100px;
+      margin: 5px;
+    }
+    .large-card {
+      width: 150px;
+      margin: 10px;
+    }
+    .forecast-section {
+      margin-top: 20px;
+    }
+  </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg bgcolor">
-      <div class="container-fluid">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" alt="" height="35px" width="35px"> 
-        <a class="navbar-brand" href="/">MAUSAM</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <nav class="navbar navbar-expand-lg bgcolor">
+    <div class="container-fluid">
+      <div>
+      <img src="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" alt="" height="35px" width="35px"> 
+      <a class="navbar-brand" href="/">MAUSAM</a>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/map">Map</a>
@@ -42,7 +71,7 @@
                 <a class="nav-link" aria-current="page" href="/about">About</a>
               </li> 
           </ul>
-          <form class="d-flex" role="search" action="" >
+          <form class="d-flex" role="search" id="searchForm">
             <input
               id="city"
               class="form-control me-2"
@@ -50,77 +79,180 @@
               placeholder="Search"
               aria-label="Search"
               name="city"
-              value=""
             />
-            <button class="btn btn-outline-success" >
+            <button class="btn btn-outline-success" type="submit">
               Search
             </button>
           </form>
         </div>
-      </div>
-    </nav>
-
-      <div class="marquee">
-      <div>
-        <span>National Disaster Management.</span>
-        <span>National Disaster Management.</span>
-      </div>
     </div>
+  </nav>
 
-    <div>
-          {{>forecasthourly}}
+  <div class="container" style="padding-bottom: 50px; padding-top: 50px">
+    
+    <main style="margin-top: 5%;">
+      <div class="containerbox">
+        <div class="box1">
+          <div class="cityname">
+      <h1>Weather for <span id="cityName">Bhubaneswar, IN</span></h1>
+          </div>
+          <h2 class="today">Today</h2>
+          <p id="date" class="date"></p>
+          <div class="imagediv" id="imageDiv">
+            <img id="weatherIcon" class="icon" src="" alt="Weather Icon">
+          </div>
+          <div id="description" class="description"></div>
+          <div id="temp" class="temp"><h1></h1></div>
+          <div class="min_today"><i class="fa-solid fa-temperature-low"></i> MIN <span id="tempMin"></span>°C</div>
+          <div class="max_today"><i class="maxicon fa-solid fa-temperature-high"></i> MAX <span id="tempMax"></span>°C</div>
+          <span class="sunrise"><h5 class="first-h5">sunrise</h5><i class="bi bi-sunrise"></i> <h5> &nbsp; <span id="sunriseTime"></span></h5></span>
+          <span class="sunset"><h5 class="first-h5">sunset</h5> <i class="bi bi-sunset"></i> <h5> &nbsp; <span id="sunsetTime"></span></h5></span>
+          <span class="humidity"><h5 class="first-h5">Humidity</h5><span class="material-symbols-outlined" style="line-height: 1.5;">humidity_percentage</span><h5><span id="humidity"></span> %</h5></span>
+          <div class="wave wvone"></div>
+          <div class="wave wvtwo"></div>
+          <div class="wave wvthree"></div>
         </div>
-         
-         <hr>
-         <div>
-           {{>forecastdaily}}
-         </div>
+      </div>
 
-  <table>
-    <tr>
-      <th></th>
-      <th>Troops</th>
-      <th>Total Troops</th>
-      <th>Deploy</th>
-      <th>Available</th>
-    </tr>
-    <tr>
-      <td><b>Resource</b></td>
-      <td>Tobias</td>
-      <td>Linus</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Medical</b></td>
-      <td>14</td>
-      <td>10</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Fire</b></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Flood</b></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-  
+      <div id="forecast5days" class="forecast-section">
+        <h3>Daily Forecast</h3>
+        <div id="forecast5daysContainer" class="d-flex flex-wrap justify-content-around">
+          <!-- 5-day forecast cards will be inserted here -->
+        </div>
+      </div>
 
+      <div id="forecast11hours" class="forecast-section">
+        <h3>Hourly Forecast</h3>
+        <div id="forecast11hoursContainer" class="d-flex flex-wrap justify-content-around">
+          <!-- 11-hour forecast cards will be inserted here -->
+        </div>
+      </div>
 
+      <div id="smallbox" class="smallbox">
+        <!-- Additional smallbox content -->
+      </div>
+    </main>
+  </div>
 
-   <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
+  <footer>
+    <div class="footer">
+      <p> ©Copyright 2023  <span class="creatorname">BY</span></p>
+    </div>
+  </footer>
+
+  <script>
+    function fetchWeather(lat = 20.2961, lon = 85.8245) {
+      const apiKey = "dbd3b02d8958d62185d02e944cd5f522"; // Replace with your actual API key
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Update the HTML with the fetched data
+          document.getElementById('weatherIcon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+          document.getElementById('temp').innerHTML = `${data.main.temp}°C`;
+          document.getElementById('tempMin').textContent = data.main.temp_min;
+          document.getElementById('tempMax').textContent = data.main.temp_max;
+          document.getElementById('date').textContent = new Date().toLocaleDateString(); // Use actual date data
+          document.getElementById('description').textContent = data.weather[0].description;
+          document.getElementById('cityName').textContent = `${data.name}, ${data.sys.country}`;
+          document.getElementById('humidity').textContent = data.main.humidity;
+          document.getElementById('sunriseTime').textContent = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+          document.getElementById('sunsetTime').textContent = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+        })
+        .catch(error => {
+          console.error('Error fetching current weather:', error);
+        });
+
+      fetch(forecastUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const hourlyContainer = document.getElementById('forecast11hoursContainer');
+          const dailyContainer = document.getElementById('forecast5daysContainer');
+          hourlyContainer.innerHTML = ''; // Clear previous forecast data
+          dailyContainer.innerHTML = ''; // Clear previous forecast data
+
+          // Process hourly forecast
+          data.list.slice(0, 11).forEach(hourly => {
+            const card = document.createElement('div');
+            card.className = 'card small-card';
+            card.innerHTML = `
+              <div class="card-body text-center">
+                <h5 class="card-title">${new Date(hourly.dt * 1000).getHours()}:00</h5>
+                <img src="http://openweathermap.org/img/wn/${hourly.weather[0].icon}@2x.png" alt="Weather Icon" />
+                <p class="card-text">${hourly.main.temp}°C</p>
+              </div>
+            `;
+            hourlyContainer.appendChild(card);
+          });
+
+          // Process daily forecast
+          data.list.filter((_, i) => i % 8 === 0).forEach(daily => {
+            const card = document.createElement('div');
+            card.className = 'card large-card';
+            card.innerHTML = `
+              <div class="card-body text-center">
+                <h5 class="card-title">${new Date(daily.dt * 1000).toLocaleDateString()}</h5>
+                <img src="http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png" alt="Weather Icon" />
+                <p class="card-text">${daily.main.temp}°C</p>
+                <p class="card-text">Min: ${daily.main.temp_min}°C</p>
+                <p class="card-text">Max: ${daily.main.temp_max}°C</p>
+              </div>
+            `;
+            dailyContainer.appendChild(card);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching forecast:', error);
+        });
+    }
+
+    // Fetch weather data when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchWeather(); // Fetch weather for Bhubaneswar by default
+    });
+
+    // Add event listener to the search form
+    document.getElementById('searchForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const city = document.getElementById('city').value;
+      if (city) {
+        fetchWeatherByCity(city);
+      }
+    });
+
+    function fetchWeatherByCity(city) {
+      const apiKey = "dbd3b02d8958d62185d02e944cd5f522"; // Replace with your actual API key
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const { lat, lon } = data.coord;
+          fetchWeather(lat, lon);
+        })
+        .catch(error => {
+          console.error('Error fetching weather for city:', error);
+        });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1B3J0s5zRjsl8WQfFYAwzW6mZfKZlBbFjHJY+qJhJ0FSrXMG4aTfFjfC9W80o7z/q" crossorigin="anonymous"></script>
 </body>
 </html>

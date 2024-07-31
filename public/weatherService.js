@@ -1,7 +1,9 @@
 const { DateTime } = require("luxon");
-
+const cors = require ('cors');
 const API_KEY_ONECALL = "dbd3b02d8958d62185d02e944cd5f522"
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
+
+
 
 
 const getWeatherdata = (infoType , searchParams,API_KEY) =>{

@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const port = 8000;
 const hbs = require('hbs');
+const cors = require('cors');
 const weatherService = require('../public/weatherService');
 const getFormattedWeatherData = weatherService.getFormattedWeatherData;
 const homeRouter = require('../routes/home');
