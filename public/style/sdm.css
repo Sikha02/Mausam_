@@ -44,7 +44,7 @@ body {
 
 .marquee div {
     display: inline-block;
-    animation: marquee 10s linear infinite; /* Faster animation */
+    animation: marquee 25s linear infinite; /* Faster animation */
     color:  #776edb; /* Optional color for text */
     font-size: 2.5rem; /* Larger font size */
     font-weight: bold; /* Bold text */
@@ -186,7 +186,7 @@ button[type="submit"] {
 
 /* Cancel button styles */
 button[type="button"] {
-    background-color: #ff4d4d;
+    background-color: #51bcc8a5;
     color: white;
 }
 

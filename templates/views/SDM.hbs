@@ -33,7 +33,23 @@
             position: relative;
             padding-left: 100px;
         }
-
+        .logout-btn {
+            cursor: pointer;
+            text-align: center;
+            margin: 0 auto;
+            width: 80px;
+            color: #fff;
+            background-color: #a5aae4;
+            opacity: 1;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+             }
+        .logout-btn:hover {
+            background-color: #6eabcb;
+        }
+        
     </style>
 </head>
 <body>
@@ -44,6 +60,10 @@
                 MAUSAM
             </a>
         </div>
+
+        <button type="button" class="logout-btn" onclick="window.location.href='/'">
+          Log out
+        </button>
     </nav>
 
     <div class="marquee">
@@ -127,6 +147,26 @@
     </div>
 
     <script>
+         function handleLogout() {
+    fetch('/logout', { // Update this path if needed
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include' // Include cookies if using session-based authentication
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = '/'; // Redirect to home page
+      } else {
+        console.error('Logout failed');
+      }
+    })
+    .catch(error => {
+      console.error('Error during logout:', error);
+    });
+  }
+
         // JavaScript to handle form submission, show custom alert, and reset page
         document.getElementById('requestForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the form from submitting normally

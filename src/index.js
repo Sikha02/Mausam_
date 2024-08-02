@@ -3,12 +3,8 @@ const app = express();
 const path = require('path');
 const port = 8000;
 const hbs = require('hbs');
-const cors = require('cors');
-const weatherService = require('../public/weatherService');
-const getFormattedWeatherData = weatherService.getFormattedWeatherData;
-const homeRouter = require('../routes/home');
 const bodyParser = require('body-parser');
-const collection = require('./moongodb');
+const { LogInCollection } = require('./moongodb'); // Ensure correct import
 
 // Define paths for Express
 const publicPath = path.join(__dirname, '../public');
@@ -27,7 +23,7 @@ app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
 // Routes
-app.use('/', homeRouter);
+app.use('/', require('../routes/home'));
 
 app.get('/map', (req, res) => {
     res.render('map');
@@ -40,38 +36,53 @@ app.get('/about', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
-
-app.post('/login', (req, res) => {
-  const { username, password, branch } = req.body;
-  LogInCollection.findOne({ username }, (err, user) => {
-    if (err) {
-      return res.status(500).send({ message: 'Error logging in' });
-    }
-    if (!user) {
-      return res.status(401).send({ message: 'Invalid username' });
-    }
-    if (user.branch !== branch) {
-      return res.status(401).send({ message: 'Invalid branch' });
-    }
-    const isValidPassword = user.comparePassword(password);
-    if (!isValidPassword) {
-      return res.status(401).send({ message: 'Invalid password' });
-    }
-    // Return a success response, e.g., a JSON Web Token (JWT)
-    res.send({ message: 'Login successful' });
+app.post('/logout', (req, res) => {
+    // Clear the user's session or authentication cookies
+    req.logout((err) => {
+      if (err) return next(err);
+      res.redirect('/'); // Redirect to home page after logout
+    });
   });
+app.post('/login', async (req, res) => {
+    const { username, password, branch } = req.body;
+    try {
+        const user = await LogInCollection.findOne({ username });
+        if (!user) {
+            return res.status(401).send('Invalid username');
+        }
+
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.status(401).send('Invalid password');
+        }
+
+        if (user.branch !== branch) {
+            return res.status(401).send('Invalid branch');
+        }
+
+        // Redirect based on branch
+        if (branch === 'NDM') {
+            res.redirect('/ndm');
+        } else if (branch === 'SDM') {
+            res.redirect('/sdm');
+        } else {
+            res.status(400).send('Invalid branch selection');
+        }
+    } catch (error) {
+        console.error('Login error:', error); // Debugging
+        res.status(500).send('Internal Server Error');
+    }
 });
 
+
 app.get('/registration', (req, res) => {
-    console.log('Registration route hit'); 
     res.render('registration');
 });
 
 app.post('/registration', async (req, res) => {
     const { username, email, password, branch } = req.body;
-    console.log('Received data:', req.body);  
     try {
-        const user = new collection({
+        const user = new LogInCollection({
             username,
             email,
             password,
@@ -84,8 +95,6 @@ app.post('/registration', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
-
 
 app.get('/ndm', (req, res) => {
     res.render('NDM');

@@ -8,6 +8,7 @@ body {
   height: 100%;
   font-family: "Roboto", sans-serif;
   background-image: url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/industry/weather-forecast-background.jpg);
+  backdrop-filter: blur(2px);
   background-size: cover;
   overflow: hidden;
 }
@@ -276,7 +277,6 @@ body {
   z-index: 3;
   fill: #fff;
 }
-
 
 
 

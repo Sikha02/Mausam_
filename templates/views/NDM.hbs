@@ -78,7 +78,7 @@
 
 .marquee div {
     display: inline-block;
-    animation: marquee 15s linear infinite; /* Faster animation */
+    animation: marquee 25s linear infinite; /* Faster animation */
     color: #776edb; /* Optional color for text */
     font-size: 2.5rem; /* Larger font size */
     font-weight: bold; /* Bold text */
@@ -190,6 +190,10 @@
             <a class="nav-link" aria-current="page" href="/request">Request</a>
           </li>
         </ul>
+        <button type="button" class="btn" onclick="window.location.href='/'">
+          Log out
+        </button>
+
         <form class="d-flex" role="search" id="searchForm">
           <input
             id="city"
@@ -280,10 +284,36 @@
   </footer>
 
   <script>
+    
+      //logout
+      function handleLogout() {
+    fetch('/logout', { // Update this path if needed
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include' // Include cookies if using session-based authentication
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = '/'; // Redirect to home page
+      } else {
+        console.error('Logout failed');
+      }
+    })
+    .catch(error => {
+      console.error('Error during logout:', error);
+    });
+  }
+
     function fetchWeather(lat = 20.2961, lon = 85.8245) {
       const apiKey = "dbd3b02d8958d62185d02e944cd5f522"; // Replace with your actual API key
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
       const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+  
+      
+   
 
       fetch(apiUrl)
         .then(response => {

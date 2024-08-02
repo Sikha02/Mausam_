@@ -11,6 +11,8 @@ body{
     flex-wrap: wrap;
     font-family: 'Roboto Slab', serif;
     background-image: url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/industry/weather-forecast-background.jpg);
+    backdrop-filter: blur(2px);
+    background-size: cover;
     background-repeat: round;
     
 }

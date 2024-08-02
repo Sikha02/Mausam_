@@ -11,6 +11,9 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-image: url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/industry/weather-forecast-background.jpg);
+	backdrop-filter: blur(2px);
+	background-size: cover;
 	min-height: 100vh;
 	margin: 0;
 }
