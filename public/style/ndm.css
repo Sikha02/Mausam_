@@ -18,45 +18,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-image: url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/industry/weather-forecast-background.jpg);
-    background-size: cover;
+    backdrop-filter: blur(2px);
+    background-size: cover; /* Ensure the background image covers the entire viewport */
+    background-position: center; /* Center the background image */
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking of navbar and form */
 }
 
-.marquee {
- 
-  
-
-  height: 100px;
-  width: 100%;
-  color: #fffdfd;
-
-  overflow: hidden;
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-
-
-}
-
-.marquee div {
-  display: block;
-  width: 200%;
-  height: 30px;
-
-  position: absolute;
-  overflow: hidden;
-
-  animation: marquee 10s linear infinite;
-}
-
-.marquee span {
-  float: left;
-  width: 50%;
-}
-
-@keyframes marquee {
-  10% { left: 0; }
-  100% { left: -100%; }
-}
 
 .navbar {
     display: flex;
@@ -126,7 +95,5 @@ body {
     font-size: 20px;
     /* transform: translate(0px, -10px); */
 }
-
-
 
 

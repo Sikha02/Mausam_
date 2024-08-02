@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDM</title>
     <link rel="icon" href="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" type="image/icon type">
-    <link rel="stylesheet" href="./style/sdm.css">
+    <link rel="stylesheet" href="/style/sdm.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
@@ -14,29 +14,52 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+                .footer{
+            background-color: #6eabcb;
+            width: 100%;
+            bottom: 0;
+            color: black;
+            font: sans-serif;
+            margin-bottom: 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .footer p{
+        margin-bottom: 0;
+        }
+        .creatorname{
+            position: relative;
+            padding-left: 100px;
+        }
+
+    </style>
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg bgcolor">
-     <div class="container-fluid d-flex align-items-center">
+    <nav class="navbar navbar-expand-lg bgcolor">
+        <div class="container-fluid d-flex align-items-center">
             <a class="navbar-brand" href="/">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" alt="" height="35px" width="35px" class="me-2">
-            MAUSAM</a>
+                <img src="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" alt="" height="35px" width="35px" class="me-2">
+                MAUSAM
+            </a>
         </div>
     </nav>
 
     <div class="marquee">
-  <div>
-    <span>NATIONAL DISASTER MANAGEMENT.</span>
-    <span>NATIONAL DISASTER MANAGEMENT.</span>
-
-    <span>NATIONAL DISASTER MANAGEMENT.</span>
-    <span>NATIONAL DISASTER MANAGEMENT.</span>
-  </div>
-</div>
+        <div>
+            <span>STATE DISASTER MANAGEMENT.</span>
+            <span>STATE DISASTER MANAGEMENT.</span>
+            <span>STATE DISASTER MANAGEMENT.</span>
+            <span>STATE DISASTER MANAGEMENT.</span>
+            <span>STATE DISASTER MANAGEMENT.</span>
+            <span>STATE DISASTER MANAGEMENT.</span>
+        </div>
+    </div>
 
     <!-- The form -->
     <div class="form-popup" id="myForm">
-        <form action="/submit_sdm" class="form-container">
+        <form id="requestForm" action="/submit_sdm" class="form-container">
             <h1>Requisition Form</h1>
 
             <label for="name"><b>Name</b></label>
@@ -94,11 +117,60 @@
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
     </div>
+
+    <!-- Custom Alert Box -->
+    <div id="customAlert" class="alert-box">
+        <div class="alert-content">
+            <span id="alertMessage">Your request has been approved</span>
+            <button class="alert-close" onclick="closeAlert()">X</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission, show custom alert, and reset page
+        document.getElementById('requestForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            showAlert('Your request has been approved'); // Show custom alert
+
+            // After the alert is dismissed, reload the page
+            setTimeout(function() {
+                location.reload(); // Reloads the page
+            }, 2000); // Delay to give time for the user to see the alert
+        });
+
+        // Function to show the custom alert
+        function showAlert(message) {
+            const alertBox = document.getElementById('customAlert');
+            const alertMessage = document.getElementById('alertMessage');
+            alertMessage.textContent = message;
+            alertBox.style.display = 'flex';
+        }
+
+        // Function to close the custom alert
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+
+        // Function to open the form (if needed)
+        function openForm() {
+            document.getElementById('myForm').style.display = 'flex';
+        }
+
+        // Function to close the form
+        function closeForm() {
+            document.getElementById('myForm').style.display = 'none';
+        }
+    </script>
     <script src="/js/main.js"></script>
     <footer>
-    <div class="footer">
-     <p> ©Copyright 2024 Mausam .All rightes reserved<span class="creatorname"> Design by Team-15</span></p>
-    </div>
-  </footer>
+        <div class="footer">
+            <p>©Copyright 2024 Mausam. All rights reserved<span class="creatorname"> Design by Team-15</span></p>
+        </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
 </body>
 </html>

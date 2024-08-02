@@ -8,6 +8,7 @@ const weatherService = require('../public/weatherService');
 const getFormattedWeatherData = weatherService.getFormattedWeatherData;
 const homeRouter = require('../routes/home');
 const bodyParser = require('body-parser');
+const collection = require('./moongodb');
 
 // Define paths for Express
 const publicPath = path.join(__dirname, '../public');
@@ -17,6 +18,8 @@ const partialsPath = path.join(__dirname, '../templates/partials');
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(publicPath));  // Serving static files from public directory
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // View Engine Setup
 app.set('view engine', 'hbs');
@@ -37,21 +40,52 @@ app.get('/about', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
+
 app.post('/login', (req, res) => {
-    const { username, password, branch } = req.body;
-    // Handle login logic here
-    if (branch === 'NDM') {
-        res.redirect('/ndm');
-    } else if (branch === 'SDM') {
-        res.redirect('/sdm');
-    } else {
-        res.status(400).send('Invalid branch selection');
+  const { username, password, branch } = req.body;
+  LogInCollection.findOne({ username }, (err, user) => {
+    if (err) {
+      return res.status(500).send({ message: 'Error logging in' });
     }
+    if (!user) {
+      return res.status(401).send({ message: 'Invalid username' });
+    }
+    if (user.branch !== branch) {
+      return res.status(401).send({ message: 'Invalid branch' });
+    }
+    const isValidPassword = user.comparePassword(password);
+    if (!isValidPassword) {
+      return res.status(401).send({ message: 'Invalid password' });
+    }
+    // Return a success response, e.g., a JSON Web Token (JWT)
+    res.send({ message: 'Login successful' });
+  });
 });
-app.get('/registration', (req, res) => { // Ensure this route exists
+
+app.get('/registration', (req, res) => {
     console.log('Registration route hit'); 
     res.render('registration');
 });
+
+app.post('/registration', async (req, res) => {
+    const { username, email, password, branch } = req.body;
+    console.log('Received data:', req.body);  
+    try {
+        const user = new collection({
+            username,
+            email,
+            password,
+            branch
+        });
+        await user.save();
+        res.redirect('/login');
+    } catch (error) {
+        console.error('Error registering user:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
 
 app.get('/ndm', (req, res) => {
     res.render('NDM');

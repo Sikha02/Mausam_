@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MAUSAM</title>
+  <title>NDM</title>
   <link rel="icon" href="https://images-na.ssl-images-amazon.com/images/I/61nuuPxUvaL.png" type="image/icon type">
   <link rel="stylesheet" href="./style/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,22 +21,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     .card {
-      backdrop-filter: blur(10px);
+       background-color: #acc9f0;
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .small-card {
+       background-color: #acc9f0;
+      width: 100px;
+      margin: 5px;
+      color: white;
+    }
+    .large-card {
+       background-color: #acc9f0;
+      width: 150px;
+      margin: 10px;
+      color: white;
     }
     .card img {
       max-width: 80px;
       height: auto;
     }
-    .small-card {
-      width: 100px;
-      margin: 5px;
-    }
-    .large-card {
-      width: 150px;
-      margin: 10px;
-    }
+
+    .small-card:hover,
+    .large-card:hover {
+    border-color: #ffffff; /* Change border color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    transition: all 0.3s ease; /* Smooth transition */
+      }
     .forecast-section {
       margin-top: 20px;
     }
@@ -53,43 +66,91 @@
       .current-info p {
         margin: 0;
       }
-body { margin: 20px; }
+
 
 .marquee {
-  height: 60px;
-  width: 100vw;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    width: 100%;
+    /* Optional background color for better visibility */
 }
 
 .marquee div {
-  display: flex;
-  width: 200%;
-  height: 100%;
-
-  position: absolute;
-  overflow: hidden;
-
-  animation: marquee 10s linear infinite;
+    display: inline-block;
+    animation: marquee 15s linear infinite; /* Faster animation */
+    color: #776edb; /* Optional color for text */
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: bold; /* Bold text */
 }
 
 .marquee span {
-  font-size: 34px;
-  font-weight: bold;
-  color: rgb(13, 32, 75);
-  line-height: 60px;
-  float: left;
-  width: 100%;
-
-  padding-left: 0%;
+    display: inline-block;
+    padding-right: 3rem; /* Space between repeated text */
 }
 
+/* Animation for scrolling */
 @keyframes marquee {
-  0% { left: 0; }
-  100% { left: -100%; }
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
+
+/* Footer styles */
+.footer {
+    background-color: #6eabcb;
+    width: 100%;
+    bottom: 0;
+    color: black;
+    font: sans-serif;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Prevent bottom margin on small screens */
+.footer p {
+    margin: 0;
+}
+
+/* Style for creator name */
+.creatorname {
+    position: relative;
+    padding-left: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .marquee div {
+        animation: marquee 8s linear infinite; /* Slightly slower animation on smaller screens */
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+
+    .marquee span {
+        padding-right: 1rem; /* Less space between text on smaller screens */
+    }
+
+    .creatorname {
+        padding-left: 50px; /* Less padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee div {
+        animation: marquee 10s linear infinite; /* Even slower animation on very small screens */
+        font-size: 1rem; /* Smaller font size on very small screens */
+    }
+
+    .marquee span {
+        padding-right: 0.5rem; /* Minimal space between text on very small screens */
+    }
+
+    .creatorname {
+        padding-left: 20px; /* Minimal padding on very small screens */
+    }
+}
+
   </style>
 </head>
 
@@ -152,7 +213,8 @@ body { margin: 20px; }
   <div>
     <span>NATIONAL DISASTER MANAGEMENT.</span>
     <span>NATIONAL DISASTER MANAGEMENT.</span>
-
+    <span>NATIONAL DISASTER MANAGEMENT.</span>
+    <span>NATIONAL DISASTER MANAGEMENT.</span>
     <span>NATIONAL DISASTER MANAGEMENT.</span>
     <span>NATIONAL DISASTER MANAGEMENT.</span>
   </div>
@@ -260,20 +322,21 @@ body { margin: 20px; }
               const dailyContainer = document.getElementById('forecast5daysContainer');
               hourlyContainer.innerHTML = ''; // Clear previous forecast data
               dailyContainer.innerHTML = ''; // Clear previous forecast data
-
               // Process hourly forecast
               data.list.slice(0, 11).forEach(hourly => {
-                const card = document.createElement('div');
-                card.className = 'card small-card';
-                card.innerHTML = `
-                  <div class="card-body text-center">
-                    <h5 class="card-title">${new Date(hourly.dt * 1000).getHours()}:00</h5>
-                    <img src="http://openweathermap.org/img/wn/${hourly.weather[0].icon}@2x.png" alt="Weather Icon" />
-                    <p class="card-text">${hourly.main.temp}°C</p>
-                  </div>
-                `;
-                hourlyContainer.appendChild(card);
-              });
+            const card = document.createElement('div');
+            card.className = 'card small-card';
+            card.innerHTML = `
+              <div class="card-body text-center">
+                <h5 class="card-title">${new Date(hourly.dt * 1000).getHours()}:00</h5>
+                <img src="http://openweathermap.org/img/wn/${hourly.weather[0].icon}@2x.png" alt="Weather Icon" />
+                <p class="card-text">${hourly.main.temp}°C</p>
+              </div>
+            `;
+            hourlyContainer.appendChild(card);
+          });
+
+
 
               // Process daily forecast
               data.list.filter((_, i) => i % 8 === 0).forEach(daily => {
@@ -335,7 +398,6 @@ body { margin: 20px; }
         });
     }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1B3J0s5zRjsl8WQfFYAwzW6mZfKZlBbFjHJY+qJhJ0FSrXMG4aTfFjfC9W80o7z/q" crossorigin="anonymous"></script>
-  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>

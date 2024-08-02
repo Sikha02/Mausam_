@@ -32,43 +32,91 @@ body {
 }
 
 /* Marquee styles */
-body { margin: 20px; }
+
 
 .marquee {
-  height: 60px;
-  width: 100vw;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    width: 100%;
+    /* Optional background color for better visibility */
 }
 
 .marquee div {
-  display: flex;
-  width: 200%;
-  height: 100%;
-
-  position: absolute;
-  overflow: hidden;
-
-  animation: marquee 10s linear infinite;
+    display: inline-block;
+    animation: marquee 10s linear infinite; /* Faster animation */
+    color:  #776edb; /* Optional color for text */
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: bold; /* Bold text */
 }
 
 .marquee span {
-  font-size: 34px;
-  font-weight: bold;
-  color: rgb(13, 32, 75);
-  line-height: 60px;
-  float: left;
-  width: 100%;
-
-  padding-left: 0%;
+    display: inline-block;
+    padding-right: 3rem; /* Space between repeated text */
 }
 
+/* Animation for scrolling */
 @keyframes marquee {
-  0% { left: 0; }
-  100% { left: -100%; }
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
+
+/* Footer styles */
+.footer {
+    background-color: #6eabcb;
+    width: 100%;
+    bottom: 0;
+    color: black;
+    font: sans-serif;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Prevent bottom margin on small screens */
+.footer p {
+    margin: 0;
+}
+
+/* Style for creator name */
+.creatorname {
+    position: relative;
+    padding-left: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .marquee div {
+        animation: marquee 8s linear infinite; /* Slightly slower animation on smaller screens */
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+
+    .marquee span {
+        padding-right: 1rem; /* Less space between text on smaller screens */
+    }
+
+    .creatorname {
+        padding-left: 50px; /* Less padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee div {
+        animation: marquee 10s linear infinite; /* Even slower animation on very small screens */
+        font-size: 1rem; /* Smaller font size on very small screens */
+    }
+
+    .marquee span {
+        padding-right: 0.5rem; /* Minimal space between text on very small screens */
+    }
+
+    .creatorname {
+        padding-left: 20px; /* Minimal padding on very small screens */
+    }
+}
+
 
 /* Form container styles */
 .form-popup {
@@ -150,3 +198,44 @@ button[type="submit"]:hover {
 button[type="button"]:hover {
     background-color: #cc0000;
 }
+/* Style for the custom alert box */
+.alert-box {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c6efae;
+    border: 1px solid #c6f5da;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.alert-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#alertMessage {
+    color: #3e7d2b;
+    font-weight: bold;
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c972e;
+    cursor: pointer;
+}
+
+.alert-close:hover {
+    color: #96f67e;
+}
+
+
+
