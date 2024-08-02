@@ -43,13 +43,15 @@
                 setSuccessFor(password);
             }
 
-            if (password2Value === '') {
-                setErrorFor(password2, 'Password2 cannot be blank');
-            } else if (passwordValue !== password2Value) {
-                setErrorFor(password2, 'Passwords do not match');
+            if (branchValue === '') {
+                setErrorFor(branch, 'Branch is required');
             } else {
-                setSuccessFor(password2);
+                setSuccessFor(branch);
             }
+        }
+        function validatePassword(password) {
+            const regex = /^[^\s\W]*$/; // Disallow spaces and special characters
+            return regex.test(password);
         }
 
         function setErrorFor(input, message) {

@@ -7,24 +7,38 @@
     <link rel="stylesheet" href="/style/style1.css">
     
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-      const signupBtn = document.getElementById('signupBtn');
-      const loginForm = document.getElementById('loginForm');
+document.addEventListener('DOMContentLoaded', () => {
+            const signupBtn = document.getElementById('signupBtn');
+            const loginForm = document.getElementById('loginForm');
 
-      signupBtn.addEventListener('click', () => {
-        window.location.href = '/registration'; // Change this path if registration.html is in a different directory
-      });
+            signupBtn.addEventListener('click', () => {
+                window.location.href = '/registration'; // Change this path if registration.html is in a different directory
+            });
 
-      loginForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent default form submission if you need custom handling
-        const userType = document.getElementById('branch').value;
-        if (userType === 'NDM') {
-          window.location.href = '/ndm';
-        } else if (userType === 'SDM') {
-          window.location.href = '/sdm';
-        }
-      });
-    });
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent default form submission if you need custom handling
+                const userType = document.getElementById('branch').value;
+                if (userType === 'NDM') {
+                    window.location.href = '/ndm';
+                } else if (userType === 'SDM') {
+                    window.location.href = '/sdm';
+                }
+            });
+
+            // Validate password field
+            function validatePassword(password) {
+                const regex = /^[^\s\W]*$/; // Disallow spaces and special characters
+                return regex.test(password);
+            }
+
+            loginForm.addEventListener('submit', (event) => {
+                const password = document.querySelector('input[name="password"]').value;
+                if (!validatePassword(password)) {
+                    alert('Password must not contain spaces or special characters.');
+                    event.preventDefault(); // Prevent form submission
+                }
+            });
+        });
 
     </script>
 
@@ -71,8 +85,8 @@
                   <input name="password" placeholder="Password" type="password" required />
                   <select name="branch" id="branch" required>
                     <option value="" disabled selected>Select your branch</option>
-                    <option value="NDM">National disater management</option>
-                    <option value="SDM">state disater management</option>
+                    <option value="NDM">National disaster management</option>
+                    <option value="SDM">state disaster management</option>
                   </select>
                   <div class="button-container">
                   <button type="submit" class="btn">
